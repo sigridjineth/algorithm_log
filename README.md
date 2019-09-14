@@ -18,4 +18,3 @@ Welcome!
 
 ## 개인 공부용 강의 링크 
 * https://programmers.co.kr/learn/courses/57
-* https://programmers.co.kr/learn/courses/57)
