@@ -1,18 +1,21 @@
 Welcome!
 ========
 
-### 강의 링크: https://programmers.co.kr/learn/courses/57](https://programmers.co.kr/learn/courses/57)
+## 2019 하반기 알고리즘 스터디 with @bloomspes
+* 매주 오픈 세미나 진행
+    * 매주 테마를 공통적으로 진행
+    * https://ko.coursera.org/specializations/data-structures-algorithms
+    * http://www.yes24.com/Product/Goods/18249021 (객체지향의 사실과 오해 OOP)
+* Code Review 권장
+    * PEP-8, OOP, 알고리즘 & 자료구조
+* 10주 — 코드를 짜는 데 무리가 없다
+    * leetcode.com Medium 문제 60분 내외 도달 목표
 
-#개요
 
-프로그래머스의 이 강의를 수강하게 된 것은 자료구조와 알고리즘의 기초를 이해하고 싶어서이다. 결국 코딩 테스트를 성공적으로 수행하기 위해서는 이에 대한 이해가 바탕이 될 것이기 때문. 
 
-아무튼 개발자로써 첫 발걸음을 뗐다고 말할 수 있는, 이번 여름의 목표를 설정해보면:
 
-- 어서와 강의 수강
-- 알고리즘 백준 기초
 
-수강 이후 가을에는 다음을 수강할 예정이다.
-- 2019 SW 역량테스트 기초이다.
 
-학습 내용을 깃헙에 계속 관리하도록 하겠다. 또한 관련해서 스터디를 진행하고 있다.
+## 개인 공부용 강의 링크 
+* https://programmers.co.kr/learn/courses/57
+* https://programmers.co.kr/learn/courses/57)
