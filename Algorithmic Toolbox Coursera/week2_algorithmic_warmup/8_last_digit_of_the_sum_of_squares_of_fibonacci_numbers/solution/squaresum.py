@@ -1,13 +1,14 @@
-def lastdigit(n):
-    assert 0<=n<=10**14
-    a=0
-    b=1
-    sum=0
-    
-    for i in range(n):
-        a,b = (b**2)%10, a+(b**2)%10
-        sum = (sum+a)%10
-    return sum
+import sys
 
-input_num = int(input())
-print(lastdigit(input_num))
+def last_digit(n):
+    if n<1:
+        return n
+    prev=0
+    curr=1
+    
+    for i in range(n-1):
+        prev, curr = curr%10, (prev+curr)%10
+    return curr%10
+
+def sum_squares(n):
+    

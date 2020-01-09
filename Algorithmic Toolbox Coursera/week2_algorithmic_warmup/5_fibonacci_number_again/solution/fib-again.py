@@ -1,17 +1,16 @@
-#Pisano Period, Fibonnaci Number Again
-#주기의 길이가 P면, N번째 피보나치 수를 M으로 나눈 나머지는 N%P번째 피보나치 수를 M으로 나눈 나머지와 같다.
-def pisano(m):
-    if m == 0:
-        return 0
-    elif m == 1:
-        return 1
+import sys
+def pib(n):
+    if n<1:
+        return n
     else:
-        a, b = 0, 1
-        for i in range (1, m*m):
-            c = (a+b) % m
-            a = b
-            b = c
-            if (a==0 and b==1):
-                return i
+        prev=0
+        curr=1
+        for _ in range(n-1):
+            prev,curr = curr, prev+curr
+        return curr
 
-print(pisano(4)) #6
+def get_pisano(m):
+    prev=0
+    curr=1
+    for i in range(m):
+        prev, curr = curr, (prev+curr)%m
