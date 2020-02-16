@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Welcome!
 ========
 
@@ -18,3 +19,12 @@ Welcome!
 
 ## 개인 공부용 강의 링크 
 * https://programmers.co.kr/learn/courses/57
+=======
+Algorithm on Sundays
+
+1. 완전탐색
+
+2. 분할정복
+
+3. DP
+>>>>>>> b6f8d77497128bd0296d08fc847b8ea73ec701ed
