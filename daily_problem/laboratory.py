@@ -16,7 +16,7 @@ dy = [0, 1, 0, -1]
 def virus(x, y):
     for i in range(4):
         nx = x + dx[i]
-        ny = y + dy[i]
+        ny = y + dyr[i]
         # 4가지 방향 중에서 바이러스가 퍼질 수 있는 경우 체크
         if (nx >= 0) and (nx < n) and (ny >= 0) and (ny < m):
             if (temp[nx][ny] == 0):
