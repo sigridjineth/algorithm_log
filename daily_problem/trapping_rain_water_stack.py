@@ -4,7 +4,7 @@ def solution(height):
   stack = []
   volume = 0
 
-  for i in range(len(height)):
+  for i in range(0, len(height)):
     # 변곡점을 만나는 경우
     while (len(stack) > 0) and (height[i] > height[stack[-1]]):
       # 스택에서 꺼낸다
