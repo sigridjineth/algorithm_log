@@ -1,67 +1,52 @@
-// 자바스크립트로 구현하는 Deque 자료구조
-// https://velog.io/@jakeseo_me/%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8%EB%A1%9C-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EC%A0%95%EB%A6%AC%ED%95%98%EA%B8%B0-3-Deque-%EA%B5%AC%ED%98%84-%EB%B0%8F-%EB%AC%B8%EC%A0%9C%ED%92%80%EC%9D%B4
+// https://stackoverflow.com/questions/60052873/how-to-implement-deque-data-structure-in-javascript
 
 class Deque {
   constructor() {
-    this.data = [];
-    this.rear = 0;
+      this.front = this.back = undefined;
   }
-
-  push_front(element) {
-    this.data.unshift(element);
-    this.rear = this.rear + 1;
+  addFront(value) {
+      if (!this.front) this.front = this.back = { value };
+      else this.front = this.front.next = { value, prev: this.front };
   }
-
-  push_back(element) {
-    this.data[this.rear] = element;
-    this.rear = this.rear + 1;
+  removeFront() {
+      let value = this.peekFront();
+      if (this.front === this.back) this.front = this.back = undefined;
+      else (this.front = this.front.prev).next = undefined;
+      return value;
   }
-
-  pop_front() {
-    if (this.isEmpty() === false) {
-      this.rear = this.rear - 1;
-      return this.data.shift();
-    }
-
-    return false;
+  peekFront() { 
+      return this.front && this.front.value;
   }
-
-  pop_back() {
-    if (this.isEmpty() === false) {
-      this.rear = this.rear - 1;
-      return this.data.pop();
-    }
-
-    return false;
+  addBack(value) {
+      if (!this.front) this.front = this.back = { value };
+      else this.back = this.back.prev = { value, next: this.back };
   }
-
-  length() {
-    return this.rear;
+  removeBack() {
+      let value = this.peekBack();
+      if (this.front === this.back) this.front = this.back = undefined;
+      else (this.back = this.back.next).back = undefined;
+      return value;
   }
-
-  isEmpty() {
-    return this.rear === 0;
-  }
-
-  getFront() {
-    if (this.isEmpty() === false) {
-      return this.data[0];
-    }
-
-    return false;
-  }
-
-  getLast() {
-    if (this.isEmpty() === false) {
-      return this.data[this.rear - 1];
-    }
-
-    return false;
-  }
-
-  print() {
-    for (let i = 0; i < this.rear; i++) {
-      console.log(this.data[i]);
-    }
+  peekBack() { 
+      return this.back && this.back.value;
   }
 }
+
+let deque = new Deque;
+console.log(deque.peekFront()); // undefined
+deque.addFront(1);
+console.log(deque.peekBack()); // 1
+deque.addFront(2);
+console.log(deque.removeBack()); // 1
+deque.addFront(3);
+deque.addFront(4);
+console.log(deque.peekBack()); // 2
+deque.addBack(5);
+deque.addBack(6);
+console.log(deque.peekBack()); // 6
+console.log(deque.removeFront()); // 4
+console.log(deque.removeFront()); // 3
+console.log(deque.removeFront()); // 2
+console.log(deque.removeFront()); // 5
+console.log(deque.removeFront()); // 6
+console.log(deque.removeFront()); // undefined
