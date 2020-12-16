@@ -23,12 +23,17 @@ let canFinish = function(numCourses, prerequisites) {
     };
 
     const traced = new Set();
+    const visited = new Set();
     
     function dfs(i) {
         // iteration structure would be False
         if (traced.has(i)) {
             return false;
         };
+        // if already visited node then it means it passes the condition then return true
+        if (visited.has(i)) {
+            return true;
+        }
         traced.add(i);
         
         for (let y of graph.get(i)) {
@@ -36,8 +41,10 @@ let canFinish = function(numCourses, prerequisites) {
                 return false;
             };
         };
-        // remove node after iternation
+        // remove node after iteration
         traced.delete(i);
+        // add node to visited after iteration
+        visited.add(i);
         return true;
     };
     
@@ -50,6 +57,3 @@ let canFinish = function(numCourses, prerequisites) {
     
     return true;
 };
-
-console.log(canFinish(2, [[1,0]]));
-console.log(canFinish(2, [[1,0], [0,1]]));
