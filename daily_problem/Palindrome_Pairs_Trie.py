@@ -28,6 +28,7 @@ class Trie:
             node = node.children[char]
             node.val = char
         node.word_id = index
+        
     
     def search(self, index, word) -> List[List[int]]:
         result = []
