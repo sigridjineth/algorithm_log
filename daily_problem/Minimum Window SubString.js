@@ -34,39 +34,3 @@ class Collections {
         return count
     }
 }
-
-// 이런 유형의 문제는 투 포인터와 슬라이딩 윈도우를 함께 사용하면 O(n)으로 줄일 수 있다.
-minWindow = (s, t) => {
-    let need = new Collections().counter(t.split(""))
-    let missing = t.length
-    let left = 0
-    let start = 0
-    let end = 0
-
-    // 오른쪽 포인터 이동
-    for (let element of s.split("").entries()) {
-        let right = element[0]
-        let char = element[1]
-        if (right === 0) {
-            continue; // 슬라이싱을 위하여 첫 번째 원소는 무시한다.
-        }
-        missing -= (need[char] > 0) // missing -= 1 when need.char > 0
-        need[char] -= 1
-        if (missing === 0) {
-            while (left < right && need[s[left]] < 0) {
-                need[s[left]] += 1
-                left += 1
-            }
-            if (!end || (right - left) <= (end - start)) {
-                start = left
-                end = right
-            }
-            need[s[left]] += 1
-            missing += 1
-            left += 1
-        }
-    }
-    return s.slice(start, end)
-}
-
-console.log(minWindow("ADOBECODEBANC", "ABC"))
