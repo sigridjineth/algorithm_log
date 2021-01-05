@@ -50,6 +50,28 @@ leastInterval = (tasks, n) => {
     return result
 }
 
+// https://www.three-snakes.com/coding-test/leet-code/621
+// 와... 함수형 자바스크립트를 잘 사용하면 정말 가능성이 무궁무진하다는 것을 깨달았다.
+let leastInterval_retry = function(tasks, n) {
+    if (n === 0) return tasks.length;
+  
+    const countMap = tasks.reduce((map, task) => {
+      if (!map[task]) map[task] = 0;
+      map[task] += 1;
+      return map;
+    }, {});
+  
+    const max = Math.max(...Object.keys(countMap).map((value) => countMap[value]));
+    const isSameMaxCount = Object.keys(countMap).reduce((sameCount, key) => {
+      if (max === countMap[key]) sameCount += 1;
+      return sameCount;
+    }, 0) - 1;
+    const idle = n * (max-1);
+    const remain = tasks.length - (max + isSameMaxCount + idle);
+    
+    return max + idle + isSameMaxCount + (remain > 0 ? remain : 0);
+  };
+
 tasks = ["A","A","A","A","A","A","B","C","D","E","F","G"]
 n = 2
-console.log(leastInterval(tasks, n))
+console.log(leastInterval_retry(tasks, n))
