@@ -3,7 +3,9 @@ let diffWaysToCompute = (input) => {
     if (Number.isInteger(input)) return parseInt(input)
     const res = input.split("").reduce((acc, cur, idx) => {
         let op = ['+', '-', '*']
-        if (op.includes(cur)) {
+        if (op.some((element) => {
+            return element === cur
+        })) {
             let leftHalf = diffWaysToCompute(input.substring(0, idx))
             let rightHalf = diffWaysToCompute(input.substring(idx + 1))
             leftHalf.forEach((x) => {
