@@ -16,5 +16,15 @@ maxSubArray = (nums) => {
     }, []))
 }
 
+maxSubArray_Kadanes = (nums) => {
+    let best_sum = Number.MIN_SAFE_INTEGER
+    let current_sum = 0
+    nums.forEach((element) => {
+        current_sum = Math.max(...[element, current_sum + element])
+        best_sum = Math.max(...[best_sum, current_sum])
+    })
+    return best_sum
+}
+
 nums = [-2, 1, -3, 4, -1, 2, 1, -5, 4]
 console.log(maxSubArray(nums))
