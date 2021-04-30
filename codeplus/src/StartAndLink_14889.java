@@ -23,6 +23,9 @@ public class StartAndLink_14889 {
 			return Math.abs(a1 - a2);
 		}
 
+		if (first.size() > n / 2) return -1;
+		if (second.size() > n / 2) return -1;
+
 		int answer = -1;
 		first.add(index);
 		int a1 = go(index + 1, first, second);
