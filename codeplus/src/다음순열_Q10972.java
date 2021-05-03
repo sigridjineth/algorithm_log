@@ -3,7 +3,7 @@ import java.util.Scanner;
 public class 다음순열_Q10972 {
 	public static boolean next_permutation(int[] a) {
 		int i = a.length - 1;
-		while (i >= 0 && a[i-1] >= a[i]) {
+		while (i > 0 && a[i-1] >= a[i]) {
 			i -= 1;
 		}
 		if (i <= 0) {
