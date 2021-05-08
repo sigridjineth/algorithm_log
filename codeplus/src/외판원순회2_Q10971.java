@@ -49,6 +49,9 @@ public class 외판원순회2_Q10971 {
 		}
 
 		do {
+			if (d[0] != 0) {
+				break;
+			}
 			boolean not_zero = true;
 			int sum = 0;
 			for (int i = 0; i < n - 1; i++) {
