@@ -1,6 +1,7 @@
 import java.util.Scanner;
 
 public class LIS4_Q14002 {
+
 	static int[] a;
 	static int[] d;
 	static int[] v;
