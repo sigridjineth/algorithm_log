@@ -6,6 +6,8 @@ public class 오르막수_Q11057 {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		int n = sc.nextInt();
+		int answer = 0;
+
 		for (int i = 0; i < 10; i++) {
 			dp[1][i] = 1;
 		}
