@@ -23,6 +23,7 @@ public class 미로탐색_Q2178 {
 		int n = sc.nextInt();
 		int m = sc.nextInt();
 		a = new int[n][m];
+		sc.nextLine();
 		for (int i = 0; i < n; i++) {
 			String s = sc.nextLine();
 			for (int j = 0; j < m; j++) {
