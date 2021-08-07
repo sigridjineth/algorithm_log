@@ -72,7 +72,6 @@ let solution = (input) => {
         for (let j = 0; j < m; j++) {
             let x = i;
             let y = j;
-            let s = 0;
             for (let k = 0; k < 4; k++) {
                 let nx = x + dx[k];
                 let ny = y + dy[k];
@@ -82,10 +81,9 @@ let solution = (input) => {
                 if (d[nx][ny] === d[x][y]) {
                     continue;
                 }
-                if (((a[x][y] & (1 << k)) > 0) && s === 0) {
+                if (((a[x][y] & (1 << k)) > 0)) {
                     if (ans < room[d[x][y]]+room[d[nx][ny]]) {
                         ans = room[d[x][y]]+room[d[nx][ny]];
-                        s += 1;
                     }
                 }
             }
