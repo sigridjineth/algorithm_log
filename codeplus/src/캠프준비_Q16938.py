@@ -34,4 +34,24 @@ def solution():
     answer = dfs(0, n, a, c, l, r, x)
     return answer
 
-print(solution())
+# print(solution())
+
+def condition_search_while_select():
+    n, l, r, x = map(int, input().split())
+    a = list(map(int, input().split()))
+
+    def dfs(index, count, total, easy, hard):
+        if (index == n):
+            if (count >= 2 and l <= total <= r and (hard - easy) >= x):
+                return 1
+            else:
+                return 0
+        elif (index != n):
+            count1 = dfs(index + 1, count + 1, total + a[index], min(easy, a[index]), max(hard, a[index]))
+            count2 = dfs(index + 1, count, total, easy, hard)
+            return count1 + count2
+
+    ans = dfs(0, 0, 0, 9999999999, 0)
+    return ans
+
+print(condition_search_while_select())
