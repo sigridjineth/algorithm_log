@@ -72,6 +72,7 @@ def solution():
     a = [list(map(int, input().split())) for _ in range(n)]
     d = [list(map(int, input().split())) for _ in range(k)]
     d = [(r - 1, c - 1, s) for r, c, s in d]
+    d.sort()
     answer = sys.maxsize
 
     while True:
