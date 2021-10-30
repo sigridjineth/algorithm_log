@@ -1,20 +1,22 @@
+import copy
+
 def solution():
     n = int(input())
     a = list(input())
     b = []
     m = (n-1)//2
-    answer = -1
+    answer = -27116
     
     for i in range(n):
         if (a[i].isdigit()):
             a[i] = [int(a[i]), 0]
         else:
             if (a[i] == "+"):
-                a[i] = [a[i], 1]
+                a[i] = [0, 1]
             elif (a[i] == "-"):
-                a[i] = [a[i], 2]
+                a[i] = [0, 2]
             elif (a[i] == "*"):
-                a[i] = [a[i], 3]
+                a[i] = [0, 3]
     
     for s in range(1<<m):
         ok = True
@@ -23,7 +25,7 @@ def solution():
                 ok = False
         if (ok is False):
             continue
-        b = a[:]
+        b = copy.deepcopy(a)
         for i in range(m):
             if (s&(1<<i)>0):
                 k = 2*i+1
@@ -63,9 +65,10 @@ def solution():
                         continue
                     else:
                         c.append(b[j])
-        for j in range((len(c)-1)//2):
+        res = c[0][0]
+        m2 = (len(c)-1) // 2
+        for j in range(m2):
             k = 2*j+1
-            res = c[0][0]
             if (c[k][1] == 1):
                 res += c[k+1][0]
             elif (c[k][1] == 2):
