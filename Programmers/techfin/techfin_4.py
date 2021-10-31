@@ -1,13 +1,8 @@
 def turn(d):
-    # print("-----------")
-    # print("d: ", d)
-    # print("new d: ", (d + 1) % 4)
     return (d + 1) % 4
-
 
 dr = [0, 1, 0, -1]  # 우 하 좌 상
 dc = [1, 0, -1, 0]
-
 
 def solution(n, jump):
     board = [[0] * n for _ in range(n)]
@@ -28,30 +23,21 @@ def solution(n, jump):
             j = 0
         if n % 2 == 1 and r == n // 2 and c == n // 2:
             r = 0
-            c = 0
+            c = -1
             d = 0
             chk_board = [[False] * n for _ in range(n)]
         elif n % 2 == 0 and r == n // 2 and c == n // 2 - 1:
             r = 0
-            c = 0
+            c = -1
             d = 0
             chk_board = [[False] * n for _ in range(n)]
 
         nr = r + dr[d]
         nc = c + dc[d]
         if 0 <= nr < n and 0 <= nc < n:
-            # print("special d:", d)
-            # print("AAA")
-            # print(chk_board)
             if chk_board[nr][nc]:
-                print(board)
-                print("r, c: ", r, c)
-                print("nr, nc: ", nr, nc)
-                # print("previous d:", d)
                 d = turn(d)
-                # print("next d: ", d)
             else:
-                # print("r, c", r, c)
                 chk_board[nr][nc] = True
                 if board[nr][nc]:
                     r, c = nr, nc
@@ -61,9 +47,7 @@ def solution(n, jump):
                 r, c = nr, nc
         else:
             d = turn(d)
-    # print(board)
     return answer
-
 
 print(solution(5, 3))
 print(solution(4, 1))
